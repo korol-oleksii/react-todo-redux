@@ -1,0 +1,28 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 200px 200px transparentize(#000, .5);
+  border-radius: 8px;
+}
+.mesh-row {
+  display: flex;
+}
+.mesh-cell {
+  display: flex;
+  flex-direction: column;
+}
+.mesh-row--v-center, .mesh-cell--h-center {
+  align-items: center;
+}
+.mesh-row--h-center, .mesh-cell--v-center {
+  justify-content: center;
+}
+@keyframes load {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

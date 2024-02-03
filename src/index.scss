@@ -8,4 +8,40 @@ html, body {
   font: 16px/18px Arial, sans-serif;
   font-style: normal;
   color: #202020;
+  background: url("./assets/img/bg.jpg") 0 center / cover no-repeat;
+}
+body {
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+}
+:focus {
+  outline: 0;
+
+  &::placeholder {
+    opacity: 0;
+  }
+}
+label {
+  display: block;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+@media (any-hover: hover) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+
+    &-thumb {
+      background-color: #606060;
+      border-radius: 8px;
+    }
+    &-track {
+      background-color: transparent;
+    }
+  }
 }
