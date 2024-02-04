@@ -5,8 +5,7 @@ const REMOVE_ALL_TASKS = 'REMOVE_ALL_TASKS';
 const SORT_STATUS_COMPLETE = 'SORT_STATUS_COMPLETE';
 const SORT_ID = 'SORT_ID';
 const SORT_DATE = 'SORT_DATE';
-// const SORT_ASC = 'SORT_ASC';
-// const SORT_DESC = 'SORT_DESC';
+const CHANGE_TASK = 'CHANGE_TASK';
 
 let InitialState = {
     todos: [
@@ -58,16 +57,11 @@ const ToDoReducer = (state = InitialState, action) => {
                 ...state,
                 todos: [...state.todos.sort((a,b) => a.date.toISOString > b.toISOString ? 1 : -1)]
             }
-        // case SORT_ASC:
-        //     return {
-        //         ...state,
-        //         todos: [...state.todos.sort((a,b) => a.date.toISOString > b.date.toISOString ? 1 : -1)]
-        //     }
-        // case SORT_DESC:
-        //     return {
-        //         ...state,
-        //         todos: [...state.todos.sort((a,b) => a.date.toISOString < b.date.toISOString ? 1 : -1)]
-        //     }
+        case CHANGE_TASK:
+            return {
+                ...state,
+                todos: state.todos.map(todo => todo.id === action.taskId ? {...todo, text: action.text} : todo)
+            }
         default:
             return state
     }
@@ -103,7 +97,7 @@ export const SortByCompleteActionCreator = () => {
         type: SORT_STATUS_COMPLETE,
     }
 }
-export const SortByIdActionCreator = (id) => {
+export const SortByIdActionCreator = () => {
     return {
         type: SORT_ID,
     }
@@ -113,13 +107,10 @@ export const SortByDateActionCreator = () => {
         type: SORT_DATE,
     }
 }
-// export const SortByAscActionCreator = () => {
-//     return {
-//         type: SORT_ASC,
-//     }
-// }
-// export const SortByDescActionCreator = () => {
-//     return {
-//         type: SORT_DESC,
-//     }
-// }
+export const ChangeTaskActionCreator = (id, text) => {
+    return {
+        type: CHANGE_TASK,
+        taskId: id,
+        text: text,
+    }
+}

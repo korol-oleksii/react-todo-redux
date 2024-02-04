@@ -34,7 +34,7 @@
     height: 20px;
     background-color: #fff;
     border-radius: 16px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #949393;
     position: relative;
     transition: all .15s linear;
 
@@ -55,6 +55,7 @@
 
   &__checkbox:checked + &__custom {
     background-color: green;
+    border-color: transparent;
 
     &::before {
       background-color: transparent;

@@ -56,9 +56,9 @@
   }
 
   .task {
-    padding: 4px 16px;
+    padding: 8px 16px;
     border-top: 1px solid #f0f0f0;
-    animation: load .5s ease-in-out;
+    animation: load .35s ease-in-out;
 
     &:nth-of-type(even) {
       background-color: #f0f0f0;
@@ -83,26 +83,49 @@
       text-align: right;
     }
 
-    .btn-remove-task {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      transition: .2s;
 
-      svg {
-        height: 16px;
-        position: relative;
-        top: 2px;
+    &__action {
+      display: flex;
+      gap: 6px;
+
+      button {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        transition: .2s;
       }
 
-      &:hover {
-        background-color: #a60404;
+      svg {
+        position: relative;
+        top: 1px;
+      }
 
+      .btn-edit-task {
         svg {
-          filter: brightness(0) invert(1);
+          height: 16px;
+        }
+        &:hover {
+          background-color: #2889e8;
+
+          svg {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+      .btn-remove-task {
+        svg {
+          height: 16px;
+        }
+        &:hover {
+          background-color: #a60404;
+
+          svg {
+            filter: brightness(0) invert(1);
+          }
         }
       }
     }
+
   }
 
   //sorting

@@ -1,5 +1,9 @@
 import {useDispatch} from "react-redux";
-import {CompleteStatusActionCreator, RemoveTaskActionCreator} from "../../../redux/reducers/ToDoReducer";
+import {
+    ChangeTaskActionCreator,
+    CompleteStatusActionCreator,
+    RemoveTaskActionCreator
+} from "../../../redux/reducers/ToDoReducer";
 
 const ToDo = ({task}) => {
 
@@ -12,6 +16,10 @@ const ToDo = ({task}) => {
         dispatch(RemoveTaskActionCreator(task.id));
     }
 
+    const ChangeTaskHandler = () => {
+        dispatch(ChangeTaskActionCreator(task.id, prompt('Change task:', `${task.text}`)));
+    }
+
     return (
         <div className="ToDo mesh-cell task" data-id={task.id}>
             <div className="task__row mesh-row mesh-row--v-center">
@@ -21,6 +29,13 @@ const ToDo = ({task}) => {
                     <span className="task__text">{task.text}</span>
                 </label>
                 <div className="task__action">
+                    <button className="btn-edit-task" onClick={ChangeTaskHandler}>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20 6V18C20 19.1 19.1 20 18 20H2C0.9 20 0 19.1 0 18V2C0 0.9 0.9 0 2 0H14L12 2H2V18H18V8L20 6ZM18.6 4.4C19.4 3.6 19.4 2.4 18.6 1.6L18.4 1.4C17.6 0.6 16.4 0.6 15.6 1.4L15 2L18 5L18.6 4.4ZM6 11L5 15L9 14L17 6L14 3L6 11Z"
+                                fill="#606060"/>
+                        </svg>
+                    </button>
                     <button className="btn-remove-task" onClick={RemoveToDoTaskHandler}>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

@@ -53,9 +53,9 @@
   background-color: rgba(40, 137, 232, 0.8);
 }
 .todo-list .task {
-  padding: 4px 16px;
+  padding: 8px 16px;
   border-top: 1px solid #f0f0f0;
-  animation: load 0.5s ease-in-out;
+  animation: load 0.35s ease-in-out;
 }
 .todo-list .task:nth-of-type(even) {
   background-color: #f0f0f0;
@@ -75,21 +75,36 @@
   color: #606060;
   text-align: right;
 }
-.todo-list .task .btn-remove-task {
-  width: 28px;
-  height: 28px;
+.todo-list .task__action {
+  display: flex;
+  gap: 6px;
+}
+.todo-list .task__action button {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   transition: 0.2s;
 }
-.todo-list .task .btn-remove-task svg {
-  height: 16px;
+.todo-list .task__action svg {
   position: relative;
-  top: 2px;
+  top: 1px;
 }
-.todo-list .task .btn-remove-task:hover {
+.todo-list .task__action .btn-edit-task svg {
+  height: 16px;
+}
+.todo-list .task__action .btn-edit-task:hover {
+  background-color: #2889e8;
+}
+.todo-list .task__action .btn-edit-task:hover svg {
+  filter: brightness(0) invert(1);
+}
+.todo-list .task__action .btn-remove-task svg {
+  height: 16px;
+}
+.todo-list .task__action .btn-remove-task:hover {
   background-color: #a60404;
 }
-.todo-list .task .btn-remove-task:hover svg {
+.todo-list .task__action .btn-remove-task:hover svg {
   filter: brightness(0) invert(1);
 }
 .todo-list__sorting {

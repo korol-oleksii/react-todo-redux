@@ -8,8 +8,6 @@ import {
     SortByCompleteActionCreator,
     SortByDateActionCreator,
     SortByIdActionCreator
-    // SortByAscActionCreator,
-    // SortByDescActionCreator,
 } from "../../redux/reducers/ToDoReducer";
 
 const ToDoList = () => {
