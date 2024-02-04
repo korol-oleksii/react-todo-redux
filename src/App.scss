@@ -5,6 +5,8 @@
   box-shadow: 0 0 200px 200px transparentize(#000, .5);
   border-radius: 8px;
 }
+
+//flex option
 .mesh-row {
   display: flex;
 }
@@ -18,11 +20,68 @@
 .mesh-row--h-center, .mesh-cell--v-center {
   justify-content: center;
 }
+
+//switch
+.switch {
+  cursor: pointer;
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+  }
+  &__custom {
+    width: 32px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    transition: all .15s linear;
+
+    &::before, &::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+    }
+    &::before {
+      background-color: #949393;
+      left: 2px;
+      transition: left .85s linear;
+    }
+  }
+
+  &__checkbox:checked + &__custom {
+    background-color: green;
+
+    &::before {
+      background-color: transparent;
+    }
+    &::after {
+      background-color: #fff;
+      left: calc(100% - 14px);
+      transition: left .85s linear;
+    }
+  }
+}
+
+
+//animation
 @keyframes load {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
   }
 }

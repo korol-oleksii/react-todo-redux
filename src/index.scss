@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font: 14px/16px Arial, sans-serif;
 }
 html, body {
   height: 100%;
-  font: 16px/18px Arial, sans-serif;
   font-style: normal;
   color: #202020;
   background: url("./assets/img/bg.jpg") 0 center / cover no-repeat;
@@ -14,6 +14,10 @@ body {
   padding: 48px 24px;
   display: flex;
   flex-direction: column;
+}
+h2 {
+  font-size: 24px;
+  font-weight: bold;
 }
 :focus {
   outline: 0;

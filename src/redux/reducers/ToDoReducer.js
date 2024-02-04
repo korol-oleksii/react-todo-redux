@@ -12,10 +12,12 @@ let InitialState = {
     todos: [
         {id:1, text: 'Learn HTML, CSS', complete: true, date: '13.09.2023'},
         {id:2, text: 'Learn JS Start', complete: true, date: '11.10.2023'},
-        {id:3, text: 'Learn Git', complete: true, date: '27.10.2023'},
-        {id:4, text: 'Learn JS Base', complete: false, date: '04.11.2023'},
-        {id:5, text: 'Learn SCSS, Webpack, Gulp', complete: true, date: '15.12.2023'},
-        {id:6, text: 'Learn React', complete: false, date: '12.01.2024'},
+        {id:3, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing.', complete: false, date: '21.10.2023'},
+        {id:4, text: 'Learn Git', complete: true, date: '27.10.2023'},
+        {id:5, text: 'Learn JS Base', complete: true, date: '04.11.2023'},
+        {id:6, text: 'Lorem ipsum dolor sit amet.', complete: false, date: '10.11.2023'},
+        {id:7, text: 'Learn SCSS, Webpack, Gulp', complete: true, date: '15.12.2023'},
+        {id:8, text: 'Learn React', complete: false, date: '12.01.2024'},
     ]
 };
 
@@ -44,7 +46,7 @@ const ToDoReducer = (state = InitialState, action) => {
         case SORT_STATUS_COMPLETE:
             return {
                 ...state,
-                todos: [...state.todos.sort((a,b) => a.complete === b.complete ? 1 : -1)]
+                todos: [...state.todos.sort((a,b) => a.complete - b.complete)]
             }
         case SORT_ID:
             return {
